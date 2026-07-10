@@ -1,0 +1,92 @@
+/* ===== BOOKING MODAL — Image & Elle ===== */
+button.nav-cta{
+  font-family:'Jost', sans-serif;
+  background:none;
+  appearance:none;
+  -webkit-appearance:none;
+  cursor:pointer;
+}
+
+.booking-overlay{
+  position:fixed; inset:0; z-index:1000;
+  background:rgba(25,21,16,0.65);
+  backdrop-filter:blur(4px);
+  display:flex; align-items:center; justify-content:center;
+  padding:24px;
+  opacity:0; visibility:hidden;
+  transition:opacity .3s ease, visibility .3s ease;
+}
+.booking-overlay.open{ opacity:1; visibility:visible; }
+
+.booking-modal{
+  background:#FFFDF9;
+  max-width:520px; width:100%;
+  max-height:90vh; overflow-y:auto;
+  padding:44px 40px 36px;
+  position:relative;
+  border:1px solid rgba(25,21,16,0.12);
+  transform:translateY(16px);
+  transition:transform .35s ease;
+}
+.booking-overlay.open .booking-modal{ transform:translateY(0); }
+
+.booking-close{
+  position:absolute; top:18px; right:18px;
+  width:34px; height:34px;
+  background:none; border:1px solid rgba(25,21,16,0.15);
+  font-size:20px; line-height:1; color:#191510;
+  cursor:pointer; font-family:'Jost',sans-serif;
+  display:flex; align-items:center; justify-content:center;
+  transition:all .3s;
+}
+.booking-close:hover{ background:#191510; color:#F6F1E7; border-color:#191510; }
+
+.booking-modal-head{ text-align:center; margin-bottom:32px; }
+.booking-modal-head h3{
+  font-family:'Cormorant Garamond', serif; font-weight:500;
+  font-size:30px; color:#191510; margin:4px 0 10px;
+}
+.booking-modal-head p{
+  font-family:'Jost', sans-serif; font-weight:300; font-size:14px;
+  color:#8b7c66; line-height:1.6;
+}
+
+#booking-form{ display:flex; flex-direction:column; gap:20px; }
+.booking-row{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+
+.booking-field{ display:flex; flex-direction:column; gap:8px; }
+.booking-field label{
+  font-family:'Jost', sans-serif; font-size:11px; letter-spacing:0.14em;
+  text-transform:uppercase; color:#8A6A3B; font-weight:500;
+}
+.booking-field input, .booking-field textarea{
+  font-family:'Jost', sans-serif; font-size:15px; font-weight:300;
+  color:#191510; background:transparent;
+  border:none; border-bottom:1px solid rgba(25,21,16,0.2);
+  padding:8px 2px; outline:none;
+  transition:border-color .3s;
+  resize:vertical;
+}
+.booking-field input:focus, .booking-field textarea:focus{
+  border-bottom-color:#8A6A3B;
+}
+.booking-field textarea{ font-family:'Jost',sans-serif; }
+
+.booking-submit{
+  margin-top:8px; border:none; cursor:pointer;
+  width:100%; justify-content:center;
+  font-family:'Jost', sans-serif;
+}
+.booking-submit:disabled{ opacity:0.6; cursor:not-allowed; }
+
+.booking-status{
+  text-align:center; font-size:13.5px; font-family:'Jost',sans-serif;
+  min-height:18px; margin:0;
+}
+.booking-status.success{ color:#4a7a4a; }
+.booking-status.error{ color:#a94442; }
+
+@media (max-width:560px){
+  .booking-modal{ padding:36px 24px 28px; }
+  .booking-row{ grid-template-columns:1fr; gap:16px; }
+}
